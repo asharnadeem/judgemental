@@ -2,7 +2,8 @@
 
 Type-safe utility library for boolean checks on assorted data types
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/license-apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Issues](https://img.shields.io/github/issues/asharnadeem/tool-kit)](https://github.com/asharnadeem/tool-kit/issues)
 
 ## Overview
 
