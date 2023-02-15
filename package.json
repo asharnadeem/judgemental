@@ -1,0 +1,23 @@
+{
+  "name": "tool-kit",
+  "version": "0.0.1",
+  "description": "Type-safe utility library for boolean checks on assorted data types",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asharnadeem/tool-kit.git"
+  },
+  "keywords": [],
+  "author": "Ashar Nadeem",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/asharnadeem/tool-kit/issues"
+  },
+  "homepage": "https://github.com/asharnadeem/tool-kit#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
