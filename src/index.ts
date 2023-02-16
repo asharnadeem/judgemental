@@ -1,1 +1,3 @@
-export const index = `tool-kit`;
+import * as stk from "./string";
+
+export { stk };

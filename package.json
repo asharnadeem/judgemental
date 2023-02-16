@@ -19,5 +19,8 @@
   "homepage": "https://github.com/asharnadeem/tool-kit#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "zod": "^3.20.6"
   }
 }
