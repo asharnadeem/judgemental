@@ -4,6 +4,8 @@
   "description": "Type-safe utility library for boolean checks on assorted data types",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +20,9 @@
   },
   "homepage": "https://github.com/asharnadeem/tool-kit#readme",
   "devDependencies": {
+    "prettier": "^2.8.4",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
