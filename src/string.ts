@@ -41,7 +41,7 @@ export function isAlpha(str: string): boolean {
 
 export function isAlphaNumeric(str: string): boolean {
   for (const s of str) {
-    if (!isAlpha(s) && !isNumeric) {
+    if (!isAlpha(s) && !isNumeric(s)) {
       return false;
     }
   }
