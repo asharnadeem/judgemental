@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { stk } from "..";
+import { stk } from "../src";
 
 describe("stk", () => {
   const alphaStr = faker.random.alpha();
@@ -234,7 +234,7 @@ describe("stk", () => {
     });
     it("is a string that contains alphanumeric characters in a non datetime format", () => {
       const str = "foo1bar2";
-      expect(stk.isDatetime(alphaNumericStr)).toEqual(false);
+      expect(stk.isDatetime(str)).toEqual(false);
     });
     /*
         tests using random strings

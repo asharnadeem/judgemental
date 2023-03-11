@@ -4,14 +4,20 @@
         "module": "commonjs",
         "declaration": true,
         "outDir": "./lib",
-        "strict": true
+        "strict": true,
+        "importHelpers": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "strictNullChecks": false
     },
     "include": [
-        "src",
-        "src/tests"
+        "src/**/*",
+        "tests/**/*"
     ],
-    "exclude": [
-        "node_modules",
-        "**/__tests__/*"
-    ]
 }
