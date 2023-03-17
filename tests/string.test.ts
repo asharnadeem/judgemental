@@ -1,13 +1,20 @@
 import { faker } from "@faker-js/faker";
-import { stk } from "../src";
+import * as stk from "../src";
 
 describe("stk", () => {
   const alphaStr = faker.random.alpha();
   const alphaBlankStr = faker.lorem.sentence();
   const alphaNumericStr = faker.random.alphaNumeric(10); // min length of 10 to ensure mix of alpha and numeric
   const datetimeStr = faker.date.recent().toISOString();
+  const emailStr = faker.internet.email();
+  const ipStr = faker.internet.ip();
+  const ipV4Str = faker.internet.ipv4();
+  const ipV6Str = faker.internet.ipv6();
+  const jsonStr = faker.datatype.json();
   const numericStr = faker.random.numeric();
   const specialCharStr = faker.internet.userAgent();
+  const urlChar = faker.internet.url();
+  const uuidChar = faker.datatype.uuid();
 
   describe("containsWhitespace", () => {
     it("is a string that contains whitespace", () => {
@@ -244,6 +251,274 @@ describe("stk", () => {
     });
     it("is a string that contains alphanumeric characters in a non datetime format (random)", () => {
       expect(stk.isDatetime(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isEmail", () => {
+    it("is a string that is a valid email", () => {
+      const str = "foo@bar.com";
+      expect(stk.isEmail(str)).toEqual(true);
+    });
+    it("is a string that is a valid email with numbers", () => {
+      const str = "foo.bar123@baz.com";
+      expect(stk.isEmail(str)).toEqual(true);
+    });
+    it("is a string that is not a valid email", () => {
+      const str = "foo bar";
+      expect(stk.isEmail(str)).toEqual(false);
+    });
+    it("is a string in URL format that is not a valid email", () => {
+      const str = "foo.bar.com";
+      expect(stk.isEmail(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid email (random)", () => {
+      expect(stk.isEmail(emailStr)).toEqual(true);
+    });
+    it("is a string that is not a valid email (random)", () => {
+      expect(stk.isEmail(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isIp", () => {
+    it("is a string that is a valid ip", () => {
+      const str = "140.151.183.216";
+      expect(stk.isIp(str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv4", () => {
+      const str = "245.108.222.0";
+      expect(stk.isIp(str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv6", () => {
+      const str = "269f:1230:73e3:318d:842b:daab:326d:897b";
+      expect(stk.isIp(str)).toEqual(true);
+    });
+    it("is a string that is not a valid ip at all", () => {
+      const str = "foo bar";
+      expect(stk.isIp(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid ip (random)", () => {
+      console.log(ipStr);
+      expect(stk.isIp(ipStr)).toEqual(true);
+    });
+    it("is a string that is a valid ipv4 (random)", () => {
+      expect(stk.isIp(ipV4Str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv6 (random)", () => {
+      expect(stk.isIp(ipV6Str)).toEqual(true);
+    });
+    it("is a string that is not a valid ip (random)", () => {
+      expect(stk.isIp(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isIpV4", () => {
+    it("is a string that is a valid ipv4", () => {
+      const str = "245.108.222.0";
+      expect(stk.isIpV4(str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv6 but not a valid ipv4", () => {
+      const str = "269f:1230:73e3:318d:842b:daab:326d:897b";
+      expect(stk.isIpV4(str)).toEqual(false);
+    });
+    it("is a string that is not a valid ip at all", () => {
+      const str = "foo bar";
+      expect(stk.isIpV4(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid ipv4 (random)", () => {
+      expect(stk.isIpV4(ipV4Str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv6 but not a valid ipv4 (random)", () => {
+      expect(stk.isIpV4(ipV6Str)).toEqual(false);
+    });
+    it("is a string that is not a valid ipv4 (random)", () => {
+      expect(stk.isIpV4(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isIpV6", () => {
+    it("is a string that is a valid ipv6", () => {
+      const str = "269f:1230:73e3:318d:842b:daab:326d:897b";
+      expect(stk.isIpV6(str)).toEqual(true);
+    });
+    it("is a string that is a valid ipv4 but not a valid ipv6", () => {
+      const str = "245.108.222.0";
+      expect(stk.isIpV6(str)).toEqual(false);
+    });
+    it("is a string that is not a valid ip at all", () => {
+      const str = "foo bar";
+      expect(stk.isIpV6(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid ipv6 (random)", () => {
+      expect(stk.isIpV6(ipV4Str)).toEqual(false);
+    });
+    it("is a string that is a valid ipv4 but not a valid ipv6 (random)", () => {
+      expect(stk.isIpV6(ipV6Str)).toEqual(true);
+    });
+    it("is a string that is not a valid ipv6 (random)", () => {
+      expect(stk.isIpV6(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isJson", () => {
+    it("is a string that is a valid json", () => {
+      const str = '{"foo":"bar","baz":"qux"}';
+      expect(stk.isJson(str)).toEqual(true);
+    });
+    it("is a string that is a valid json with multiple data types", () => {
+      const str = '{"foo":"bar","baz":123, "qux":false}';
+      expect(stk.isJson(str)).toEqual(true);
+    });
+    it("is a string that is a valid json with nested objects", () => {
+      const str = '{"foo": "bar","baz":{"qux":123}}';
+      expect(stk.isJson(str)).toEqual(true);
+    });
+    it("is a string in that is not a valid json", () => {
+      const str = "{foo:bar}";
+      expect(stk.isJson(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid json (random)", () => {
+      expect(stk.isJson(jsonStr)).toEqual(true);
+    });
+    it("is a string that is not a valid json (random)", () => {
+      expect(stk.isJson(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isNumeric", () => {
+    it("is a string that contains only numeric characters", () => {
+      const str = "123456789";
+      expect(stk.isNumeric(str)).toEqual(true);
+    });
+    it("is a string that contains only alpha characters", () => {
+      const str = "foo";
+      expect(stk.isNumeric(str)).toEqual(false);
+    });
+    it("is a string that contains only alphanumeric characters", () => {
+      const str = "fooBar123";
+      expect(stk.isNumeric(str)).toEqual(false);
+    });
+    it("is a string that contains whitespace", () => {
+      const str = "123 456";
+      expect(stk.isNumeric(str)).toEqual(false);
+    });
+    it("is a string that contains only numeric and special characters", () => {
+      const str = "123@456";
+      expect(stk.isNumeric(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that contains only numeric characters (random)", () => {
+      expect(stk.isNumeric(numericStr)).toEqual(true);
+    });
+    it("is a string that contains only alpha characters (random)", () => {
+      expect(stk.isNumeric(alphaStr)).toEqual(false);
+    });
+    it("is a string that contains only alphanumeric characters (random)", () => {
+      expect(stk.isNumeric(alphaNumericStr)).toEqual(false);
+    });
+    it("is a string that contains whitespace (random)", () => {
+      expect(stk.isNumeric(alphaBlankStr)).toEqual(false);
+    });
+    it("is a string that contains special characters (random)", () => {
+      expect(stk.isNumeric(specialCharStr)).toEqual(false);
+    });
+  });
+
+  describe("isUlid", () => {
+    it("is a string that is a valid ulid", () => {
+      const str = "01GVRY40B7T37W8V7XE55DRZ3C";
+      expect(stk.isUlid(str)).toEqual(true);
+    });
+    it("is a string that is a valid ulid (2)", () => {
+      const str = "01GVRY7VARSV097NQMMMA4JVTM";
+      expect(stk.isUlid(str)).toEqual(true);
+    });
+    it("is a string that is a valid uuid that is not a valid ulid", () => {
+      const str = "7c9f66e7-f6d8-481e-87b8-c4a6d3f57c04";
+      expect(stk.isUlid(str)).toEqual(false);
+    });
+    it("is a string that is not a valid ulid", () => {
+      const str = "foo bar";
+      expect(stk.isUlid(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is not a valid uuid (random)", () => {
+      expect(stk.isUuid(uuidChar)).toEqual(true);
+      expect(stk.isUlid(uuidChar)).toEqual(false);
+    });
+  });
+
+  describe("isUrl", () => {
+    it("is a string that is a valid url", () => {
+      const str = "https://www.foo.com";
+      expect(stk.isUrl(str)).toEqual(true);
+    });
+    it("is a string that is a valid url with numbers", () => {
+      const str = "https://www.foo123.com";
+      expect(stk.isUrl(str)).toEqual(true);
+    });
+    it("is a string that is a valid email that is not a valid url", () => {
+      const str = "foo@bar.com";
+      expect(stk.isUrl(str)).toEqual(false);
+    });
+    it("is a string that is not a valid url", () => {
+      const str = "foo bar";
+      expect(stk.isUrl(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid url (random)", () => {
+      expect(stk.isUrl(urlChar)).toEqual(true);
+    });
+    it("is a string that is not a valid url (random)", () => {
+      expect(stk.isUrl(alphaNumericStr)).toEqual(false);
+    });
+  });
+
+  describe("isUuid", () => {
+    it("is a string that is a valid uuid version 1", () => {
+      const str = "cffb0eda-c519-11ed-afa1-0242ac120002";
+      expect(stk.isUuid(str)).toEqual(true);
+    });
+    it("is a string that is a valid uuid version 4", () => {
+      const str = "9debacb0-1727-461b-87ce-5b8a08dd2bfe";
+      expect(stk.isUuid(str)).toEqual(true);
+    });
+    it("is a string that is a valid guid that is also a valid uuid", () => {
+      const str = "7c9f66e7-f6d8-481e-87b8-c4a6d3f57c04";
+      expect(stk.isUuid(str)).toEqual(true);
+    });
+    it("is a string that is not a valid uuid", () => {
+      const str = "foo bar";
+      expect(stk.isUuid(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that is a valid uuid (random)", () => {
+      expect(stk.isUuid(uuidChar)).toEqual(true);
+    });
+    it("is a string that is not a valid uuid (random)", () => {
+      expect(stk.isUuid(alphaNumericStr)).toEqual(false);
     });
   });
 });
