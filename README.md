@@ -11,6 +11,12 @@ Type-safe utility library for boolean checks on assorted data types
 
 tool-kit is a library inspired by [Apache Commons Lang3](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/) which aims to provide a rich, comprehensive set of utility functions centered around but not limited to primitive data types. It aims to be a one stop shop for helper utilities needed to make day to day development seamless and help developers write lean, concise, and elegant code.
 
+### How do you install the library ?
+
+```
+npm i @asharnadeem/tool-kit
+```
+
 ### How do you use the library
 
 ```
