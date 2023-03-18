@@ -3,6 +3,10 @@ import { z } from "zod";
 const cuidSchema = z.string().cuid();
 const datetimeSchema = z.string().datetime({ offset: true });
 const emailSchema = z.string().email();
+const ipSchema = z.string().ip();
+const ipv4Schema = z.string().ip({ version: "v4" });
+const ipv6Schema = z.string().ip({ version: "v6" });
+const ulidSchema = z.string().ulid();
 const urlSchema = z.string().url();
 const uuidSchema = z.string().uuid();
 const whitespaceChars = [
@@ -69,6 +73,18 @@ export function isEmail(str: string): boolean {
   return emailSchema.safeParse(str).success;
 }
 
+export function isIp(str: string): boolean {
+  return ipSchema.safeParse(str).success;
+}
+
+export function isIpV4(str: string): boolean {
+  return ipv4Schema.safeParse(str).success;
+}
+
+export function isIpV6(str: string): boolean {
+  return ipv6Schema.safeParse(str).success;
+}
+
 export function isJson(str: string): boolean {
   try {
     JSON.parse(str);
@@ -80,6 +96,10 @@ export function isJson(str: string): boolean {
 
 export function isNumeric(str: string): boolean {
   return !isNaN(parseFloat(str)) && isFinite(Number(str));
+}
+
+export function isUlid(str: string): boolean {
+  return ulidSchema.safeParse(str).success;
 }
 
 export function isUrl(str: string): boolean {
