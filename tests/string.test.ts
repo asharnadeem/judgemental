@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import * as stk from "../src";
+import { stk } from "../src";
 
 describe("stk", () => {
   const alphaStr = faker.random.alpha();
@@ -303,7 +303,6 @@ describe("stk", () => {
         tests using random strings
      */
     it("is a string that is a valid ip (random)", () => {
-      console.log(ipStr);
       expect(stk.isIp(ipStr)).toEqual(true);
     });
     it("is a string that is a valid ipv4 (random)", () => {
