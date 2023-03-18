@@ -13,7 +13,7 @@ tool-kit is a library inspired by [Apache Commons Lang3](https://commons.apache.
 
 ### How do you install the library ?
 
-`npm install tool-kit`
+`npm i @asharnadeem/tool-kit`
 
 ### How do you use the library
 

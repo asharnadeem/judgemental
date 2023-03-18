@@ -1,5 +1,5 @@
 {
-  "name": "tool-kit",
+  "name": "@asharnadeem/tool-kit",
   "version": "0.1.0",
   "description": "Type-safe utility library for boolean checks on assorted data types",
   "main": "index.js",
