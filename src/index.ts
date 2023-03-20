@@ -1,3 +1,3 @@
-import * as stk from "./string";
+import * as sj from "./string";
 
-export { stk };
+export { sj };

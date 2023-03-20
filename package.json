@@ -1,5 +1,5 @@
 {
-  "name": "@asharnadeem/tool-kit",
+  "name": "judgemental",
   "version": "0.1.0",
   "description": "Type-safe utility library for boolean checks on assorted data types",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asharnadeem/tool-kit.git"
+    "url": "git+https://github.com/asharnadeem/judgemental.git"
   },
   "keywords": [],
   "author": "Ashar Nadeem",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/asharnadeem/tool-kit/issues"
+    "url": "https://github.com/asharnadeem/judgemental/issues"
   },
-  "homepage": "https://github.com/asharnadeem/tool-kit#readme",
+  "homepage": "https://github.com/asharnadeem/judgemental#readme",
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@types/jest": "^29.4.0",
