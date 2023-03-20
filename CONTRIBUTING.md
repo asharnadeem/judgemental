@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-git clone https://github.com/asharnadeem/tool-kit.git
+git clone https://github.com/asharnadeem/judgemental.git
 ```
 
 ## Prerequisites
