@@ -6,6 +6,7 @@ Type-safe utility library for boolean checks on assorted data types
 [![Issues](https://img.shields.io/github/issues/asharnadeem/judgemental)](https://github.com/asharnadeem/judgemental/issues)
 [![Build Status](https://github.com/asharnadeem/judgemental/actions/workflows/build.yml/badge.svg)](https://github.com/asharnadeem/judgemental/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/asharnadeem/judgemental/branch/main/graph/badge.svg?token=AVIQP2EFWK)](https://codecov.io/gh/asharnadeem/judgemental)
+[![npm](https://img.shields.io/npm/v/react)](https://www.npmjs.com/package/judgemental)
 
 ## Overview
 
