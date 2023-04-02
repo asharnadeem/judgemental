@@ -1,6 +1,6 @@
 {
   "name": "judgemental",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Type-safe utility library for boolean checks on assorted data types",
   "main": "index.js",
   "scripts": {
