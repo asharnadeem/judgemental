@@ -7,7 +7,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "npm run build && jest --coverage"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",

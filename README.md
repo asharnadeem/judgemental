@@ -34,3 +34,27 @@ const isValidBirthday = sj.isDatetime(myBirthday)
 
 // and so on ...
 ```
+
+### Methods
+
+#### String
+
+- containsWhitespace
+- equalsIgnoreCase
+- isAlpha
+- isAlphaNumeric
+- isBlank
+- isCuid
+- isDatetime
+- isEmail
+- isIp
+- isIpV4
+- isIpV6
+- isJson
+- isLowercase
+- isNumeric
+- isUlid
+- isUppercase
+- isUrl
+- isUuid
+- isWhitespace

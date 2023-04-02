@@ -13,8 +13,9 @@ describe("sj", () => {
   const jsonStr = faker.datatype.json();
   const numericStr = faker.random.numeric();
   const specialCharStr = faker.internet.userAgent();
-  const urlChar = faker.internet.url();
-  const uuidChar = faker.datatype.uuid();
+  const urlStr = faker.internet.url();
+  const uuidStr = faker.datatype.uuid();
+  const wordStr = faker.lorem.word();
 
   describe("containsWhitespace", () => {
     it("is a string that contains whitespace", () => {
@@ -398,6 +399,33 @@ describe("sj", () => {
     });
   });
 
+  describe("isLowercase", () => {
+    it("is a string that contains only lowercase letters", () => {
+      const str = "foo";
+      expect(sj.isLowercase(str)).toEqual(true);
+    });
+    it("is a string that contains both uppercase and lowercase letters", () => {
+      const str = "Foo";
+      expect(sj.isLowercase(str)).toEqual(false);
+    });
+    it("is a string that contains only uppercase letters", () => {
+      const str = "FOO";
+      expect(sj.isLowercase(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that contains only lowercase letters (random)", () => {
+      expect(sj.isLowercase(wordStr.toLowerCase())).toEqual(true);
+    });
+    it("is a string that contains both uppercase and lowercase letters (random)", () => {
+      expect(sj.isLowercase(alphaBlankStr)).toEqual(false);
+    });
+    it("is a string that contains only uppercase letters (random)", () => {
+      expect(sj.isLowercase(wordStr.toUpperCase())).toEqual(false);
+    });
+  });
+
   describe("isNumeric", () => {
     it("is a string that contains only numeric characters", () => {
       const str = "123456789";
@@ -460,8 +488,35 @@ describe("sj", () => {
         tests using random strings
      */
     it("is a string that is not a valid uuid (random)", () => {
-      expect(sj.isUuid(uuidChar)).toEqual(true);
-      expect(sj.isUlid(uuidChar)).toEqual(false);
+      expect(sj.isUuid(uuidStr)).toEqual(true);
+      expect(sj.isUlid(uuidStr)).toEqual(false);
+    });
+  });
+
+  describe("isUppercase", () => {
+    it("is a string that contains only uppercase letters", () => {
+      const str = "FOO";
+      expect(sj.isUppercase(str)).toEqual(true);
+    });
+    it("is a string that contains both uppercase and lowercase letters", () => {
+      const str = "Foo";
+      expect(sj.isUppercase(str)).toEqual(false);
+    });
+    it("is a string that contains only lowercase letters", () => {
+      const str = "foo";
+      expect(sj.isUppercase(str)).toEqual(false);
+    });
+    /*
+        tests using random strings
+     */
+    it("is a string that contains only uppercase letters (random)", () => {
+      expect(sj.isUppercase(wordStr.toUpperCase())).toEqual(true);
+    });
+    it("is a string that contains both uppercase and lowercase letters (random)", () => {
+      expect(sj.isUppercase(alphaBlankStr)).toEqual(false);
+    });
+    it("is a string that contains only lowercase letters (random)", () => {
+      expect(sj.isUppercase(wordStr.toLowerCase())).toEqual(false);
     });
   });
 
@@ -486,7 +541,7 @@ describe("sj", () => {
         tests using random strings
      */
     it("is a string that is a valid url (random)", () => {
-      expect(sj.isUrl(urlChar)).toEqual(true);
+      expect(sj.isUrl(urlStr)).toEqual(true);
     });
     it("is a string that is not a valid url (random)", () => {
       expect(sj.isUrl(alphaNumericStr)).toEqual(false);
@@ -514,7 +569,7 @@ describe("sj", () => {
         tests using random strings
      */
     it("is a string that is a valid uuid (random)", () => {
-      expect(sj.isUuid(uuidChar)).toEqual(true);
+      expect(sj.isUuid(uuidStr)).toEqual(true);
     });
     it("is a string that is not a valid uuid (random)", () => {
       expect(sj.isUuid(alphaNumericStr)).toEqual(false);

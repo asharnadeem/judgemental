@@ -247,6 +247,23 @@ export function isJson(str: string): boolean {
 }
 
 /**
+ * Returns a boolean value denoting whether the input string is all lowercase
+ *
+ * @example Returns true
+ * ```
+ * isLowercase("foo");
+ * ```
+ * @example Returns false
+ * ```
+ * isLowercase("Foo");
+ * ```
+ *
+ */
+export function isLowercase(str: string): boolean {
+  return str.toLowerCase() === str;
+}
+
+/**
  * Returns a boolean value denoting whether the input string is numeric
  *
  * @example Returns true
@@ -278,6 +295,23 @@ export function isNumeric(str: string): boolean {
  */
 export function isUlid(str: string): boolean {
   return ulidSchema.safeParse(str).success;
+}
+
+/**
+ * Returns a boolean value denoting whether the input string is all uppercase
+ *
+ * @example Returns true
+ * ```
+ * isUppercase("FOO");
+ * ```
+ * @example Returns false
+ * ```
+ * isUppercase("Foo");
+ * ```
+ *
+ */
+export function isUppercase(str: string): boolean {
+  return str.toUpperCase() === str;
 }
 
 /**
