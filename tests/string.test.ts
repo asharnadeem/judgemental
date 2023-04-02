@@ -376,7 +376,7 @@ describe("sj", () => {
       expect(sj.isJson(str)).toEqual(true);
     });
     it("is a string that is a valid json with multiple data types", () => {
-      const str = '{"foo":"bar","baz":123, "qux":false}';
+      const str = '{"foo":"bar","baz":123,"qux":false}';
       expect(sj.isJson(str)).toEqual(true);
     });
     it("is a string that is a valid json with nested objects", () => {
