@@ -7,6 +7,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
+    "preinstall": "npx typedoc src/string.ts",
     "test": "jest --coverage"
   },
   "repository": {

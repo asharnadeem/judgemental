@@ -3,6 +3,7 @@
 Type-safe utility library for boolean checks on assorted data types
 
 [![License](https://img.shields.io/badge/license-apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Docs](https://img.shields.io/badge/wiki-documentation-forestgreen)](https://asharnadeem.github.io/judgemental/)
 [![Issues](https://img.shields.io/github/issues/asharnadeem/judgemental)](https://github.com/asharnadeem/judgemental/issues)
 [![Build Status](https://github.com/asharnadeem/judgemental/actions/workflows/build.yml/badge.svg)](https://github.com/asharnadeem/judgemental/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/asharnadeem/judgemental/branch/main/graph/badge.svg?token=AVIQP2EFWK)](https://codecov.io/gh/asharnadeem/judgemental)
