@@ -1,12 +1,13 @@
 {
   "name": "judgemental",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Type-safe utility library for boolean checks on assorted data types",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
+    "preinstall": "npx typedoc src/string.ts",
     "test": "jest --coverage"
   },
   "repository": {
